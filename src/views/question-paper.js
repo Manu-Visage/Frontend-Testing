@@ -1,7 +1,7 @@
 import React from "react";
-
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
+import Webcam from "react-webcam";
 
 import "./question-paper.css";
 
@@ -21,18 +21,10 @@ const QuestionPaper = (props) => {
         </div>
         <div className="question-paper-glass"></div>
         <div className="question-paper-group44">
-          <button className="question-paper-rectangle80">
-            option 3
-          </button>
-          <button className="question-paper-rectangle82">
-            option 4
-          </button>
-          <button className="question-paper-rectangle81">
-            option 1
-          </button>
-          <button className="question-paper-rectangle83">
-            option 2
-          </button>
+          <button className="question-paper-rectangle80">option 3</button>
+          <button className="question-paper-rectangle82">option 4</button>
+          <button className="question-paper-rectangle81">option 1</button>
+          <button className="question-paper-rectangle83">option 2</button>
           <div className="question-paper-question">
             <span className="question-paper-text10">
               What is the area of circle
@@ -50,11 +42,14 @@ const QuestionPaper = (props) => {
             src="/external/rectangle781502-xkiw-500w.png"
             className="question-paper-rectangle78"
           />
-          <img
-            alt="camera1502"
-            src="/external/camera1502-y21-300h.png"
-            className="question-paper-camera"
-          />
+          <div className="question-paper-webcam">
+            <Webcam
+              height="auto"
+              width="100%"
+              className="question-paper-camera"
+              audio={true}
+            />
+          </div>
           <div className="question-paper-group43">
             <div className="question-paper-group42">
               <button className="question-paper-text11">10</button>

@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Helmet } from "react-helmet";
 import { useHistory } from "react-router-dom";
-import Webcam from "react-webcam"; // Webcam module to get the camera feed
+import Webcam from "react-webcam";
 import "./capture-image-page.css";
 
 // Modal component for confirmation

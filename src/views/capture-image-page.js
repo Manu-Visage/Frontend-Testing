@@ -63,11 +63,7 @@ const CaptureImagePage = (props) => {
             src="/external/blob11161-q2wd.svg"
             className="capture-image-page-blob1"
           />
-          <img
-            alt="blob31161"
-            src="/external/blob31161-9ubg.svg"
-            className="capture-image-page-blob3"
-          />
+          
           <img
             alt="blob61161"
             src="/external/blob61161-8e7p.svg"
@@ -81,7 +77,7 @@ const CaptureImagePage = (props) => {
           ref={webcamRef}
           screenshotFormat="image/png"
           className="capture-image-page-cameraoutput"
-          audio={false} // Disable audio (not needed for this use case)
+          audio={false}
         />
 
         {/* Capture Image Button */}

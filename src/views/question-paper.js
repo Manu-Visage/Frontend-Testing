@@ -1,38 +1,140 @@
-import React from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import Webcam from "react-webcam";
 
 import "./question-paper.css";
 
+const questions = [
+  {
+    question: "How many Keywords are there in C Programming language ?",
+    options: ["23", "32", "33", "43"],
+    correctAnswerIndex: 1,
+    choosenAnswer: null,
+  },
+  {
+    question: "Which of the following functions takes A console Input in Python ?",
+    options: ["get()", "input()", "gets()", "scan()"],
+    correctAnswerIndex: 1,
+    choosenAnswer: null,
+  },
+  {
+    question: "Which of the following is the capital of India ?",
+    options: ["Mumbai", "Delhi", "Chennai", "Lucknow"],
+    correctAnswerIndex: 1,
+    choosenAnswer: null,
+  },
+  {
+    question: "Which of The Following is must to Execute a Python Code ?",
+    options: ["TURBO C", "Py Interpreter", "Notepad", "IDE"],
+    correctAnswerIndex: 1,
+    choosenAnswer: null,
+  },
+  {
+    question: "The Taj Mahal is located in  ?",
+    options: ["Patna", "Delhi", "Benaras", "Agra"],
+    correctAnswerIndex: 3,
+    choosenAnswer: null,
+  },
+  {
+    question: "The append Method adds value to the list at the ?",
+    options: ["custom location", "end", "center", "beginning"],
+    correctAnswerIndex: 1,
+    choosenAnswer: null,
+  },
+  {
+    question: "In which year '@' sign was first chosen for its use in e-mail address",
+    options: ["1976", "1980", "1977", "1972"],
+    correctAnswerIndex: 3,
+    choosenAnswer: null,
+  },
+  {
+    question: "Which of the following is not a costal city of india ?",
+    options: ["Bengluru", "Kochin", "Mumbai", "vishakhapatnam"],
+    correctAnswerIndex: 0,
+    choosenAnswer: null,
+  },
+  {
+    question: "Which of The following is executed in browser(client side) ?",
+    options: ["perl", "css", "python", "java"],
+    correctAnswerIndex: 1,
+    choosenAnswer: null,
+  },
+  {
+    question: "Which of the following keyword is used to create a function in Python ?",
+    options: ["function", "void", "fun", "def"],
+    correctAnswerIndex: 3,
+    choosenAnswer: null,
+  },
+  {
+    question: "To Declare a Global variable in python we use the keyword ?",
+    options: ["all", "var", "let", "global"],
+    correctAnswerIndex: 3,
+    choosenAnswer: null,
+  },
+  {
+    question: "Who was the 1st President of India",
+    options: ["Jawaharlal Nehru", "Rajendra Prasad", "Indira Gandhi", "Sarvepalli Radhakrishnan"],
+    correctAnswerIndex: 1,
+    choosenAnswer: null,
+  },
+  {
+    question: "Which one of the followings is a programming language",
+    options: ["HTTP", "HTML", "HPML", "FTP"],
+    correctAnswerIndex: 1,
+    choosenAnswer: null,
+  }
+];
+
+
 const QuestionPaper = (props) => {
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [selectedOptions, setSelectedOptions] = useState(Array(10).fill(null));
+
+  const handleOptionClick = (optionIndex) => {
+    const newSelections = [...selectedOptions];
+    newSelections[currentQuestionIndex] = optionIndex;
+    setSelectedOptions(newSelections);
+    const isCorrect =
+      optionIndex === questions[currentQuestionIndex].correctAnswerIndex;
+
+    // Delay to show feedback (optional)
+    if (isCorrect && currentQuestionIndex < questions.length - 1) {
+      setTimeout(() => {
+        setCurrentQuestionIndex((prev) => prev + 1);
+      }, 500); // 0.5 sec delay
+    }
+  };
+
+  const currentQuestion = questions[currentQuestionIndex];
+
   return (
     <div className="question-paper-container1">
       <Helmet>
         <title>exported project</title>
       </Helmet>
       <div className="question-paper-question-paper">
-        <div className="question-paper-background">
-          {/* <img
-            alt="blob31161"
-            src="/external/blob31161-9ubg.svg"
-            className="question-paper-blob3"
-          /> */}
-        </div>
+        <div className="question-paper-background"></div>
         <div className="question-paper-glass"></div>
         <div className="question-paper-group44">
-          <button className="question-paper-rectangle80">option 3</button>
-          <button className="question-paper-rectangle82">option 4</button>
-          <button className="question-paper-rectangle81">option 1</button>
-          <button className="question-paper-rectangle83">option 2</button>
+          {currentQuestion.options.map((option, index) => (
+            <button
+              key={index}
+              className={`question-paper-rectangle8${index}`}
+              onClick={() => handleOptionClick(index)}
+              style={{
+                backgroundColor:
+                  selectedOptions[currentQuestionIndex] === index
+                    ? "rgb(137, 144, 137)"
+                    : "white",
+              }}
+            >
+              {option}
+            </button>
+          ))}
           <div className="question-paper-question">
             <span className="question-paper-text10">
-              What is the area of circle
-              <span
-                dangerouslySetInnerHTML={{
-                  __html: " ",
-                }}
-              />
+              {currentQuestion.question}
             </span>
           </div>
         </div>
@@ -48,39 +150,25 @@ const QuestionPaper = (props) => {
               width="100%"
               className="question-paper-camera"
               audio={true}
+              
             />
           </div>
           <div className="question-paper-group43">
-            <div className="question-paper-group42">
-              <button className="question-paper-text11">10</button>
-            </div>
-            <div className="question-paper-group41">
-              <button className="question-paper-text12">9</button>
-            </div>
-            <div className="question-paper-group40">
-              <button className="question-paper-text13">8</button>
-            </div>
-            <div className="question-paper-group39">
-              <button className="question-paper-text14">7</button>
-            </div>
-            <div className="question-paper-group38">
-              <button className="question-paper-text15">6</button>
-            </div>
-            <div className="question-paper-group37">
-              <button className="question-paper-text16">5</button>
-            </div>
-            <div className="question-paper-group36">
-              <button className="question-paper-text17">4</button>
-            </div>
-            <div className="question-paper-group35">
-              <button className="question-paper-text18">3</button>
-            </div>
-            <div className="question-paper-group34">
-              <button className="question-paper-text19">2</button>
-            </div>
-            <div className="question-paper-group33">
-              <button className="question-paper-text20">1</button>
-            </div>
+            {[...Array(10)].map((_, i) => (
+              <button
+                onClick={() => setCurrentQuestionIndex(i)}
+                style={{
+                  backgroundColor:
+                    currentQuestionIndex === i ? "#818080 " : "rgb(132, 170, 223) ",
+                }}
+                key={i}
+                className={`question-paper-group${33 + i}`}
+              >
+                <button className={`question-paper-text${20 - i}`}>
+                  {i + 1}
+                </button>
+              </button>
+            ))}
           </div>
         </div>
         <div className="question-paper-submit">

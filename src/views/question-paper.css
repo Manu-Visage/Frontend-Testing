@@ -86,8 +86,8 @@
 
 .question-paper-group44 {
   top: 213px;
-  left: 199px;
-  width: 626px;
+  left: 169px;
+  width: 826px;
   height: 256px;
   display: flex;
   position: absolute;
@@ -154,12 +154,12 @@
 
 .question-paper-question {
   top: 0px;
-  left: 0px;
-  width: 626px;
-  height: 63px;
+  left: 10px;
+  width: 726px;
+  height: 83px;
   display: flex;
   position: absolute;
-  align-items: flex-start;
+  align-items:center;
   flex-shrink: 1;
   border-radius: 16px;
   background-color: rgba(255, 255, 255, 1);
@@ -167,7 +167,7 @@
 
 .question-paper-text10 {
   top: 0px;
-  left: 0px;
+  left: 20px;
   color: rgba(0, 0, 0, 1);
   right: 0px;
   bottom: 0px;
@@ -570,7 +570,9 @@
   align-items: flex-start;
   flex-shrink: 1;
   border-radius: 8px;
-  background-color: rgba(217, 217, 217, 1);
+  border: 1px black;
+  background-color: aqua;
+  /* background-color: rgba(217, 217, 217, 1); */
 }
 
 .question-paper-text20 {
